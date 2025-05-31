@@ -1,0 +1,48 @@
+{
+  "name": "ecommerce-digital-product",
+  "version": "1.0.0",
+  "description": "E-commerce platform for digital products with FastAPI backend and React frontend",
+  "scripts": {
+    "dev": "concurrently \"npm run backend:dev\" \"npm run frontend:dev\"",
+    "backend:dev": "cd backend && uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "frontend:dev": "cd frontend && npm start",
+    "backend:install": "cd backend && pip install -r requirements.txt",
+    "frontend:install": "cd frontend && npm install",
+    "install:all": "npm run backend:install && npm run frontend:install",
+    "test": "npm run backend:test && npm run frontend:test",
+    "backend:test": "cd backend && pytest",
+    "frontend:test": "cd frontend && npm test",
+    "build": "cd frontend && npm run build",
+    "backend:migrate": "cd backend && alembic upgrade head",
+    "backend:migration": "cd backend && alembic revision --autogenerate -m",
+    "lint": "npm run backend:lint && npm run frontend:lint",
+    "backend:lint": "cd backend && flake8 app/ && black app/ --check",
+    "frontend:lint": "cd frontend && npm run lint"
+  },
+  "keywords": [
+    "ecommerce",
+    "digital-products",
+    "fastapi",
+    "react",
+    "typescript",
+    "python"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.0.1",
+    "@reduxjs/toolkit": "^2.8.2",
+    "axios": "^1.9.0",
+    "react-hook-form": "^7.56.4",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.6.1",
+    "yup": "^1.6.1"
+  }
+}
